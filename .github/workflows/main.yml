@@ -23,11 +23,25 @@ jobs:
           BRANCH_NAME: "main"
           UTC_OFFSET: -5
           AUTO_PUSH: true
-      - uses: ActionwareIO/branch-push-action@action
+      - name: Copycat Action
+        uses: andstor/copycat-action@v3.2.4
         with:
-          branch: profle-cards
-          files: ./profile-summary-card-output
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.METRICS_TOKEN }}
+          src_path: profile-summary-card-output
+          dst_path: cards
+          dst_owner: ${{ github.repository_owner }}
+          dst_repo_name: ${{ github.repository_owner }}
+          src_branch: main
+          dst_branch: profile-cards
+          clean: false
+          #file_filter: 
+          #filter: 
+          #exclude: 
+          #src_wiki: 
+          #dst_wiki: 
+          commit_message: Update Cards 
+          username: ${{ github.repository_owner }}
+          email: ${{ github.owner_email }}
           
   snake-cards:
     runs-on: ubuntu-latest
@@ -37,7 +51,7 @@ jobs:
         uses: Platane/snk@v3
         id: snake-gif
         with:
-          github_user_name:  ${{ github.repository_owner }}
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
@@ -428,9 +442,4 @@ jobs:
           plugin_followup: yes
           plugin_projects: yes
          # plugin_projects_repositories: lowlighter/metrics/projects/1
-      - uses: ActionwareIO/branch-push-action@action
-        with:
-          branch: profle-cards
-          files: ./profile-metric-card-output
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          
