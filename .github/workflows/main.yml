@@ -28,12 +28,12 @@ jobs:
         with:
           personal_token: ${{ secrets.METRICS_TOKEN }}
           src_path: profile-summary-card-output
-          dst_path: cards
+          dst_path: /.
           dst_owner: ${{ github.repository_owner }}
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: main
           dst_branch: profile-cards
-          clean: true
+          clean: false
           #file_filter: 
           #filter: 
           #exclude: 
@@ -53,8 +53,8 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/profile-snake-card-output/github-contribution-grid-snake.svg
+            dist/profile-snake-card-output/github-contribution-grid-snake-dark.svg?palette=github-dark
       - name: Publish Snake Card
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
@@ -66,13 +66,13 @@ jobs:
         uses: andstor/copycat-action@v3.2.4
         with:
           personal_token: ${{ secrets.METRICS_TOKEN }}
-          src_path: /.
-          dst_path: cards
+          src_path: profile-snake-card-output
+          dst_path: /.
           dst_owner: ${{ github.repository_owner }}
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: output
           dst_branch: profile-cards
-          clean: true
+          clean: false
           #file_filter: 
           #filter: 
           #exclude: 
@@ -461,12 +461,12 @@ jobs:
         with:
           personal_token: ${{ secrets.METRICS_TOKEN }}
           src_path: profile-metric-card-output
-          dst_path: cards
+          dst_path: /.
           dst_owner: ${{ github.repository_owner }}
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: main
           dst_branch: profile-cards
-          clean: true
+          clean: false
           #file_filter: 
           #filter: 
           #exclude: 
