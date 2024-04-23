@@ -22,11 +22,12 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: "main"
           UTC_OFFSET: -5
-          AUTO_PUSH: false
+          AUTO_PUSH: true
           
   snake-cards:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Snake Animation Cards
         uses: Platane/snk@v3
         id: snake-gif
@@ -46,6 +47,7 @@ jobs:
   metrics-cards:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Achievements metrics
         uses: lowlighter/metrics@latest
         with:
