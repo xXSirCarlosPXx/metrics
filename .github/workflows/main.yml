@@ -33,7 +33,7 @@ jobs:
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: main
           dst_branch: profile-cards
-          clean: false
+          clean: true
           #file_filter: 
           #filter: 
           #exclude: 
@@ -72,7 +72,7 @@ jobs:
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: output
           dst_branch: profile-cards
-          clean: false
+          clean: true
           #file_filter: 
           #filter: 
           #exclude: 
@@ -466,7 +466,7 @@ jobs:
           dst_repo_name: ${{ github.repository_owner }}
           src_branch: main
           dst_branch: profile-cards
-          clean: false
+          clean: true
           #file_filter: 
           #filter: 
           #exclude: 
@@ -474,4 +474,4 @@ jobs:
           #dst_wiki: 
           commit_message: Update Cards 
           username: ${{ github.repository_owner }}
-          email: ${{ github.owner_email }}
+          email: ${{ github.owner_email }}  
