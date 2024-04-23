@@ -23,6 +23,11 @@ jobs:
           BRANCH_NAME: "main"
           UTC_OFFSET: -5
           AUTO_PUSH: true
+      - uses: ActionwareIO/branch-push-action@action
+        with:
+          branch: profle-cards
+          files: ./profile-summary-card-output
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
   snake-cards:
     runs-on: ubuntu-latest
@@ -42,6 +47,11 @@ jobs:
           target_branch: output
           build_dir: dist
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ActionwareIO/branch-push-action@action
+        with:
+          branch: profle-cards
+          files: ./
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   metrics-cards:
@@ -418,4 +428,9 @@ jobs:
           plugin_followup: yes
           plugin_projects: yes
          # plugin_projects_repositories: lowlighter/metrics/projects/1
+      - uses: ActionwareIO/branch-push-action@action
+        with:
+          branch: profle-cards
+          files: ./profile-metric-card-output
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          
